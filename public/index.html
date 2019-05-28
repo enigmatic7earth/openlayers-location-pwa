@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- link rel manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <!-- iOS meta tags and icons -->
+<!--   <meta name="apple-mobile-web-app-capable" content="yes"> -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="OpenLayers PWA">
+  <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+  <!-- description -->
+  <meta name="description" content="Sample OpenLayers PWapp">
+  <!-- meta theme-color -->
+  <meta name="theme-color" content="#aad2dd" />
+  <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/styles/inline.css">
+  <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+  <style>
+    .map {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      font-family: sans-serif;
+    }
+    .locate {
+		  top: 3.8em;
+		  left: .5em;
+		}
+  </style>
+  <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+  <title>OpenLayers example</title>
+  </head>
+  <body>
+    <header class="header">
+    <h1>
+      OpenLayers PWA
+    </h1>
+    <button id="butInstall" aria-label="Install" hidden></button>
+  </header>
+  <script src="/scripts/install.js"></script>
+		<br/><br/><br/>
+    <div id="map" class="map"></div>
+    
+    <script type="text/javascript">
+      
+      const map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([72.854118,19.128825]),
+          zoom: 11
+        })
+      });
+      
+      // Vector source and layer 
+      //<!-- start -->
+      const source = new ol.source.Vector();
+      const layer = new ol.layer.Vector({
+        source: source
+      });
+      map.addLayer(layer);
+      //<!-- end -->
+      // Code snippet that gets the location and its accuracy from the browser's Geolocation API
+      // Geo location
+      //<!-- start -->
+
+      navigator.geolocation.watchPosition(function(pos) {
+        const coords = [pos.coords.longitude, pos.coords.latitude];
+        const accuracy = new ol.geom.Polygon.circular(coords, pos.coords.accuracy);
+        source.clear(true);
+        source.addFeatures([
+          new ol.Feature(accuracy.transform('EPSG:4326', map.getView().getProjection())),
+          new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(coords)))
+        ]);
+      }, function(error) {
+        alert(`ERROR: ${error.message}`);
+      }, {
+        enableHighAccuracy: true
+      });
+
+      //<!-- end -->
+      //User location `Control` element(2)
+      //<!-- start -->
+      const locate = document.createElement('div');
+      locate.className = 'ol-control ol-unselectable locate';
+      locate.innerHTML = '<button title="Locate me">◎</button>';
+      locate.addEventListener('click', function() {
+        if (!source.isEmpty()) {
+          map.getView().fit(source.getExtent(), {
+            maxZoom: 18,
+            duration: 500
+          });
+        }
+        //console.log("click fired!");
+      });
+      map.addControl(new ol.control.Control({
+        element: locate
+      }));
+
+      //<!-- end -->
+      
+      
+      
+      
+      
+      
+      //<!-- working code -->
+      // var map = new ol.Map({
+      //   target: 'map',
+      //   layers: [
+      //     new ol.layer.Tile({
+      //       source: new ol.source.OSM()
+      //     })
+      //   ],
+      //   view: new ol.View({
+      //     center: ol.proj.fromLonLat([72.854118,19.128825]),
+      //     zoom: 11
+      //   })
+      // });
+      //<!-- working code-end -->
+ 
+    </script>
+    <script>
+    // <!-- Register service worker. --->
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((reg) => {
+              console.log('Service worker registered.', reg);
+            });
+      });
+    }
+  </script>
+  </body>
+</html>
