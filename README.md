@@ -1,5 +1,5 @@
 
- # <img src="https://github.com/enigmatic7earth/openlayers-pwa/blob/master/public/images/icons/icon-128x128.png" width="48"> OpenLayers PWA
+ # <img src="https://github.com/enigmatic7earth/openlayers-pwa/blob/master/public/images/icons/icon-128x128.png" width="48"> OpenLayers-location PWA
 
 
 A simple Progressive Web App made with [Glitch](https://glitch.com/) and [OpenLayers](https://openlayers.org/)
