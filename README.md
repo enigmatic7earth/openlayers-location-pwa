@@ -14,7 +14,10 @@ User Location displayed
 
 ## Install
 
-[OpenLayers PWA with location](https://openlayers-location-pwa.glitch.me/)
+
+[OpenLayers PWA with location](https://enigmatic7earth-openlayers-location-pwa.glitch.me/)
+
+
 
 
 Made with [Glitch](https://glitch.com/)
