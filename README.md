@@ -4,8 +4,13 @@
 
 A simple Progressive Web App made with [Glitch](https://glitch.com/) and [OpenLayers](https://openlayers.org/) by [Prashant](https://glitch.com/@enigmatic7earth)
 
+Main screen
+---
+<img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-1.png" width="621" alt="Main screen">
 
-
+User Location displayed
+---
+<img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-2.png" width="621" alt="User location displayed">
 
 ## Install
 
