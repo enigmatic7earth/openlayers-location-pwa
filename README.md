@@ -2,8 +2,14 @@
  # <img src="https://github.com/enigmatic7earth/openlayers-pwa/blob/master/public/images/icons/icon-128x128.png" width="48"> OpenLayers PWA
 
 
-A simple Progressive Web App made with [Glitch](https://glitch.com/) and [OpenLayers](https://openlayers.org/)
+A simple Progressive Web App made with [Glitch](https://glitch.com/) and [OpenLayers](https://openlayers.org/) by [Prashant](https://glitch.com/@enigmatic7earth)
 
+
+
+
+## Install
+
+[OpenLayers PWA with location](https://openlayers-location-pwa.glitch.me/)
 
 
 Made with [Glitch](https://glitch.com/)
