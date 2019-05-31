@@ -12,6 +12,13 @@ User Location displayed
 ---
 <img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-2.png" width="621" alt="User location displayed">
 
+
+## Offline screen
+---
+<img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-3.png" width="621" alt="Offline displayed">
+
+
+
 ## Install
 
 [OpenLayers PWA with location](https://enigmatic7earth-openlayers-location-pwa.glitch.me/)
