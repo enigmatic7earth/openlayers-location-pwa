@@ -15,7 +15,7 @@ User Location displayed
 
 ## Offline screen
 ---
-<img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/enigmatic7earth-openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-3.png" width="621" alt="Offline displayed">
+<img src="https://github.com/enigmatic7earth/openlayers-location-pwa/blob/master/enigmatic7earth-openlayers-location-pwa.glitch.me_(iPhone%206_7_8%20Plus)-offline.png" width="621" alt="Offline displayed">
 
 
 
